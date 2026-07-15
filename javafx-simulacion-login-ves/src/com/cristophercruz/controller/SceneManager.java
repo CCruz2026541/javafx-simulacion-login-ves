@@ -4,6 +4,7 @@
  */
 package com.cristophercruz.controller;
 
+import com.cristophercruz.view.BienvenidaView;
 import com.cristophercruz.view.LoginView;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -11,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 
 
 /**
@@ -27,6 +29,7 @@ public class SceneManager {
     private SceneManager(){
         
     }
+   
     
     public void ventanaLogin(){
         try {
@@ -44,6 +47,19 @@ public class SceneManager {
            errorPadre.printStackTrace();
         }
     }
+    
+    public void ventanaBienvendia(){
+        try {
+            this.escenarioSecundario = new Stage();
+            this.escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
+            this.escenarioSecundario.initModality(Modality.APPLICATION_MODAL);
+            BienvenidaView bienvenida = new BienvenidaView();
+            this.escenaPrincipal = new Scene(bienvenida, 15, 25);
+            this.escenarioSecundario.setScene(escenaPrincipal);
+        } catch (Exception e) {
+        }
+    }
+    
     
     public void cambiarEscena(Pane panel, int ancho, int alto){
         try {

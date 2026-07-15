@@ -43,19 +43,22 @@ public class LoginView extends BorderPane {
    private ImageView imgLogoLogin;
    private Button btnIniciarSesion;
    
+   private String RUTA_ESTILOS = "/com/cristophercruz/styles/";
+   
    private LoginView(){
+       this.getStylesheets().add(RUTA_ESTILOS+"LoginStyles.css");
        this.setPadding( new Insets(15));
        
        this.setBorder( new Border(
-            new BorderStroke( Paint.valueOf("#E561FF"), //Color del borde
+            new BorderStroke( Paint.valueOf("#000000"), //Color del borde
                         BorderStrokeStyle.SOLID, //Estilo del borde
                         new CornerRadii(25), //pixeles del redondeado 
-                        new BorderWidths(5)) //Ancho del borde
+                        new BorderWidths(8)) //Ancho del borde
        
        ));
        
        this.setBackground( new Background(
-            new BackgroundFill(Color.SKYBLUE, //Color  del fondo
+            new BackgroundFill(Color.GOLD, //Color  del fondo
                     new CornerRadii(25), //pixeles del redondeado
                     Insets.EMPTY) //Espaciado del fondo
        ));
@@ -71,7 +74,6 @@ public class LoginView extends BorderPane {
        this.setTop( barraDeOpciones );
        
        //Objeto del formulario
-       cajaVertical = new VBox();
 //       
        formulario = new GridPane();
 //       
@@ -83,24 +85,26 @@ public class LoginView extends BorderPane {
 //       
        formulario.add(lblNombreUsuario, 0, 0);
        formulario.add(txtNombreUsuario, 1, 0);
-//       
-//       formulario.add(lblClave, 0,1);
-//       formulario.add(pwdClave, 1,1);
-//       
-//       
-//       imgLogoLogin = new ImageView( new ImageController().getImageLogin("logo"));
-//        imgLogoLogin.setFitWidth(100);
-//       imgLogoLogin.setFitHeight(100);
-//       imgLogoLogin.setCache(true);
+       
+       formulario.add(lblClave, 0,1);
+       formulario.add(pwdClave, 1,1);
+       
+       cajaVertical = new VBox();
+       
+       imgLogoLogin = new ImageView( new ImageController().getImageLogin("logo"));
+        imgLogoLogin.setFitWidth(100);
+       imgLogoLogin.setFitHeight(100);
+       imgLogoLogin.setCache(true);
        btnInciarSesion = new Button("Inicar Sesion");
-//
-//       
+
+       
        cajaVertical.getChildren().addAll(
-//               formulario, 
-               btnIniciarSesion
+               imgLogoLogin,
+               formulario,
+               btnInciarSesion
        );
-//       
        this.setCenter(cajaVertical);
+       
    }
    
    public static LoginView getInstanciaLoginView() {
@@ -109,6 +113,7 @@ public class LoginView extends BorderPane {
       return instanciaLoginView;
    }
     
+   
    public static void setInstanciaLoginView(LoginView instanciaLoginView){
        LoginView.instanciaLoginView = instanciaLoginView;
    }
@@ -136,6 +141,83 @@ public class LoginView extends BorderPane {
     public void setBarraDeOpciones(HBox barraDeOpciones) {
         this.barraDeOpciones = barraDeOpciones;
     }
+
+    public void setOnMouseDragged() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public VBox getCajaVertical() {
+        return cajaVertical;
+    }
+
+    public void setCajaVertical(VBox cajaVertical) {
+        this.cajaVertical = cajaVertical;
+    }
+
+    public Label getLblNombreUsuario() {
+        return lblNombreUsuario;
+    }
+
+    public void setLblNombreUsuario(Label lblNombreUsuario) {
+        this.lblNombreUsuario = lblNombreUsuario;
+    }
+
+    public TextField getTxtNombreUsuario() {
+        return txtNombreUsuario;
+    }
+
+    public void setTxtNombreUsuario(TextField txtNombreUsuario) {
+        this.txtNombreUsuario = txtNombreUsuario;
+    }
+
+    public Label getLblClave() {
+        return lblClave;
+    }
+
+    public void setLblClave(Label lblClave) {
+        this.lblClave = lblClave;
+    }
+
+    public PasswordField getPwdClave() {
+        return pwdClave;
+    }
+
+    public void setPwdClave(PasswordField pwdClave) {
+        this.pwdClave = pwdClave;
+    }
+
+    public Button getBtnInciarSesion() {
+        return btnInciarSesion;
+    }
+
+    public void setBtnInciarSesion(Button btnInciarSesion) {
+        this.btnInciarSesion = btnInciarSesion;
+    }
+
+    public GridPane getFormulario() {
+        return formulario;
+    }
+
+    public void setFormulario(GridPane formulario) {
+        this.formulario = formulario;
+    }
+
+    public ImageView getImgLogoLogin() {
+        return imgLogoLogin;
+    }
+
+    public void setImgLogoLogin(ImageView imgLogoLogin) {
+        this.imgLogoLogin = imgLogoLogin;
+    }
+
+    public Button getBtnIniciarSesion() {
+        return btnIniciarSesion;
+    }
+
+    public void setBtnIniciarSesion(Button btnIniciarSesion) {
+        this.btnIniciarSesion = btnIniciarSesion;
+    }
    
    
+    
 }
